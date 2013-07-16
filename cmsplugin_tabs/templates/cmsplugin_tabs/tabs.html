@@ -1,17 +1,18 @@
-<div id="{{ tabs_list_id }}" class="tabs-plugin">
-	<ul class="tabs-list">
-		{% for tab in tabs %}
-			<li><a href="#{{tab.get_html_id}}">{{ tab }}</a></li>
-		{% endfor %}
-	</ul>
-	{% for tab in tabs %}
-		<div id="{{tab.get_html_id}}">
-			{{ tab.content|safe }}
-		</div>
-	{% endfor %}
+<div class="join_pixfirst_tabs">
+    <div class="tabs">
+    {% for tab in tabs %}
+      <div id="{{tab.get_html_id}}" class="pane" style="display: block;">
+      		{{ tab.content|safe }}
+            <div class="clear"></div>
+      </div>
+    {% endfor %}
+        <ul>
+        	{% for tab in tabs %}
+            <li class="{% if forloop.first %}active{% endif %}{% if forloop.last %}last{% endif %}">
+            	<a title="{{ tab.title }}" href="#{{tab.get_html_id}}">{{ tab.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+      <div class="clear"></div>
+    </div>      
 </div>
-<script type="text/javascript">
-	$(function(){
-		$('#{{ tabs_list_id }}').tabs();
-	});
-</script>

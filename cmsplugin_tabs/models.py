@@ -24,4 +24,4 @@ class SingleTab(models.Model):
         return unicode(self.title)
 
     def get_html_id(self):
-        return 'cmsplugin_tabs_%s' % self.pk
+        return 'tab-%s' % self.pk
