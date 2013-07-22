@@ -1,7 +1,7 @@
 <div class="join_pixfirst_tabs">
     <div class="tabs">
     {% for tab in tabs %}
-      <div id="{{tab.get_html_id}}" class="pane" style="display: block;">
+      <div id="{{tab.get_html_id}}" class="pane" style="display: {% if forloop.first %}block{% else %}none{% endif %};">
       		{{ tab.content|safe }}
             <div class="clear"></div>
       </div>
